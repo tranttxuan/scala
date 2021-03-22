@@ -6,8 +6,6 @@ resolvers += "jBCrypt Repository" at "https://repo1.maven.org/maven2/org/"
 
 resolvers += "sonatype-releases" at "https://oss.sonatype.org/content/repositories/releases/"
 
-resolvers += "bitbucket-release" at "https://bitbucket.org/Adrien/particeep-repository/raw/master/repository/"
-
 resolvers += Classpaths.sbtPluginReleases
 
 resolvers += Resolver.jcenterRepo
