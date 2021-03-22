@@ -1,4 +1,4 @@
-package com.particeep.test
+package com.particeep.test.async
 
 import scala.concurrent.Future
 
@@ -13,7 +13,7 @@ object CEODao {
     CEO("2", "Sundar", "Pichai")
   )
 
-  def byId(id: String): Future[Option[CEO]] = Future { ceos.find(_.id == id) }
+  def byId(id: String): Future[Option[CEO]] = Future(ceos.find(_.id == id))
 }
 
 object EnterpriseDao {
@@ -22,8 +22,8 @@ object EnterpriseDao {
     Enterprise("2", "Facebook", "2")
   )
 
-  def byId(id: String): Future[Option[Enterprise]] = Future { enterprises.find(_.id == id) }
-  def byCEOId(ceo_id: String): Future[Option[Enterprise]] = Future { enterprises.find(_.ceo_id == ceo_id) }
+  def byId(id:        String): Future[Option[Enterprise]] = Future(enterprises.find(_.id == id))
+  def byCEOId(ceo_id: String): Future[Option[Enterprise]] = Future(enterprises.find(_.ceo_id == ceo_id))
 }
 
 object WhatsWrong2 {
@@ -31,7 +31,7 @@ object WhatsWrong2 {
   //Review this code. What could be done better ? How would you do it ?
   def getCEOAndEnterprise(ceo_id: Option[String]): Future[(Option[CEO], Option[Enterprise])] = {
     for {
-      ceo <- CEODao.byId(ceo_id.get)
+      ceo        <- CEODao.byId(ceo_id.get)
       enterprise <- EnterpriseDao.byCEOId(ceo_id.get)
     } yield {
       (ceo, enterprise)

@@ -1,15 +1,20 @@
 package com.particeep.test.akka
 
+import akka.actor.ActorSystem
+import akka.stream.ActorMaterializer
+import akka.stream.scaladsl._
+import akka.{ Done, NotUsed }
+import java.util.concurrent.Future
+
 /**
-  * Question about Akka Stream framework https://doc.akka.io/docs/akka/current/stream/index.html
-  *
-  * Complete the code (replace the ???)
-  */
+ * Question about Akka Stream framework https://doc.akka.io/docs/akka/current/stream/index.html
+ *
+ * Complete the code (replace the ???)
+ */
 object BasicStream {
 
   def main(args: Array[String]): Unit = {
     implicit val system = ActorSystem("Actor System")
-    implicit val materializer = ActorMaterializer()
 
     val numbers = 1 to 1000
 

@@ -1,4 +1,4 @@
-package com.particeep.test
+package com.particeep.test.akka
 
 import akka.actor.Actor
 

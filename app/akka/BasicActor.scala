@@ -13,10 +13,10 @@ class BasicActor {}
 object FireActor {
 
   /**
-    * Create an instance of BasicActor
-    *
-    * Make it print "Hello there." and "What?"
-    */
+   * Create an instance of BasicActor
+   *
+   * Make it print "Hello there." and "What?"
+   */
   def fireActor(): Unit = {
     //    val system = ActorSystem("Actor System")
     //    val basic_actor = system.actorOf(Props[BasicActor], name = "basic actor")
