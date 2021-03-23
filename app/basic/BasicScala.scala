@@ -16,12 +16,20 @@ object BasicScala {
    * input  : Map()
    * output : ""
    */
-  def encodeParamsInUrl(params: Map[String, String]): String = ???
+  def encodeParamsInUrl(params: Map[String, String]): String =
+    "?" + params.map(_.productIterator.mkString("=")).mkString("&")
 
   /**
    * Test if a String is an email
    */
-  def isEmail(maybeEmail: String): Boolean = ???
+  private val emailRegex =
+    """^[a-zA-Z0-9\.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$""".r
+  def isEmail(maybeEmail: String): Boolean = maybeEmail match {
+    case null                                                            => false
+    case maybeEmail if maybeEmail.trim.isEmpty                           => false
+    case maybeEmail if emailRegex.findFirstMatchIn(maybeEmail).isDefined => true
+    case _                                                               => false
+  }
 
   /**
    * Compute i ^ n
@@ -34,6 +42,23 @@ object BasicScala {
    * input : (i = 99, n = 38997)
    * output : 1723793299
    */
-  def power(i: Int, n: Int): Int = ???
+  def power(i: Int, n: Int): Int = {
+    var result = 1
+    var a      = 0
+    for(a <- 1 to n) {
+      result *= i
+    }
+    result
+  }
 
+  def main(args: Array[String]) {
+    // println(encodeParamsInUrl(Map("sort_by" -> "name", "order_by" -> "asc", "user_id" -> "12")))
+
+    // println(isEmail("xuan@gmail.com"))
+    // println(isEmail(""))
+    // println(isEmail("12121"))
+    // println(isEmail("xuans11s!@gmail.com.com"))
+    println(power(2,3))
+    println(power(99,38997))
+  }
 }
