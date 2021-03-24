@@ -7,12 +7,19 @@ package com.particeep.test.basic
  */
 object ComputeAvarage {
 
-  def average(l: List[Double]) = l.foldLeft((0.0, 1))((acc, i) => ((acc._1 + (i - acc._1) / acc._2), acc._2 + 1))._1
-  
-  /* For testing in command line */
-  def main(args: Array[String]) {
-    var list = List[Double](4, 6, 7)
-    println(average(list))
+  def average(l: List[Double]) = {
+    if(l == null || l.length == 0) {
+      return 0;
+    }
+
+    var sum: Int    = 0;
+    var length: Int = l.length;
+
+    l.foreach(i => {
+      sum += i;
+    })
+
+    return sum / length;
   }
 
 }

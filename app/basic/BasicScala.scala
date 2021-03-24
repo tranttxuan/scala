@@ -51,14 +51,5 @@ object BasicScala {
     result
   }
 
-  def main(args: Array[String]) {
-    // println(encodeParamsInUrl(Map("sort_by" -> "name", "order_by" -> "asc", "user_id" -> "12")))
 
-    // println(isEmail("xuan@gmail.com"))
-    // println(isEmail(""))
-    // println(isEmail("12121"))
-    // println(isEmail("xuans11s!@gmail.com.com"))
-    println(power(2,3))
-    println(power(99,38997))
-  }
 }

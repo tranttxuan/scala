@@ -1,5 +1,6 @@
 package com.particeep.test.async
-
+//NOTE: A Scala Future is used to create a little pocket of concurrency that you use for one-shot needs
+// use it when you need to call an algorithm that runs an indeterminate amount of time — such as calling a web service or executing a long-running algorithm — so you therefore want to run it off of the main thread.
 import scala.concurrent.Future
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -14,6 +15,7 @@ object CEODao {
   )
 
   def byId(id: String): Future[Option[CEO]] = Future(ceos.find(_.id == id))
+
 }
 
 object EnterpriseDao {

@@ -1,11 +1,20 @@
 
 1) Explain REST
+REST is a set of rules, that when followed, enable you to build a distributed application that has a specific set of desirable constraints.
+
+In the REST architectural style, the implementation of the client and the implementation of the server can be done independently without each knowing about the other.By using a REST interface, different clients hit the same REST endpoints, perform the same actions, and receive the same responses.
+
 
 2) Explain the architectural style for the creation of a web API (client server communication, formatting language, number of servers, etc.)
+In my projects, client and server establishes a connection using JSON. 
 
 3) What are the best practices when deploying an application in the cloud
-
+When deploying an application in the cloud, it is necessary to pay attention to
+- Clearly define the purpose of the application in order to know the amount of resources is needed
+- Availability of resource monitoring
+- Automation (e.g. creation VMs, fault recovery, etc...)
+- Security
 4) What are your best strength : infra ? DB ? web ?
-Give us detail about it
+My best strength is website and database. I did some websites with MERN stacks.
 
 5) Among all the projects you have worked on. Which architecture do you enjoy the most? explain why ?

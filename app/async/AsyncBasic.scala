@@ -14,7 +14,26 @@ import scala.concurrent.ExecutionContext.Implicits.global
  */
 object AsyncBasic {
 
-  def compute(id: String) = ???
+   def compute(id: String) = {
+        val aggFut = for{
+        f1Result <- Webservice1.call(id)
+        f2Result <- Webservice2.call(id)
+      } yield (f1Result, f2Result) // return Future
+
+      var result = Await.result(aggFut, Duration.Inf)
+
+      val res1 = result._1 match {
+        case None => 0
+        case Some(value) => value
+      }
+
+      val res2 = result._2 match {
+        case Left(value) => 0
+        case Right(value) => value
+      }
+
+      return res1 + res2
+  }
 
 }
 
